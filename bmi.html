@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: #2a363b;
+        }
+
+        #dCon {
+            color:skyblue;
+            width: 80%;
+            height: auto;
+            background-color:  #2a363b;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .dCon1 {
+            margin-left: 30px;
+        }
+
+        #dHead {
+            width: 60%;
+            height: auto;
+            color: #e84a5f;
+            background-color:  #2a363b;
+            margin-left: 30px;
+        }
+        #dHead1{
+            color:skyblue  ;
+        }
+
+        #dLeft {
+            width: 60%;
+            height: 1000px;
+            display: inline-block;
+            background-color:  #2a363b;
+        }
+
+        #dRight {
+            width: 40%; 
+            height: auto;
+            float: right;
+            background-color:  #2a363b;
+
+        }
+
+        .tit {
+            color: #e84a5f;
+            font-size: xx-large;
+            margin-left: 50px;
+        }
+
+        .con {
+            color: violet;
+            font-size: large;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        #con1 {
+            list-style-type: none;
+        }
+
+        .lb {
+            color: #555;
+            margin-left: 70px;
+            font-size: 20px;
+        }
+
+        #su {
+            display: inline-block;
+            width: 212px;
+            height: 44px;
+            line-height: 44px !important;
+            border-radius: 25px !important;
+            background-color: #e8435f !important;
+            font-size: 16px !important;
+            font-weight: 700;
+            text-align: center;
+            color: #fff !important;
+            text-transform: uppercase;
+            margin-top: 5px;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        .rs1 {
+            width: 600px;
+            height: auto;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        #rs1 {
+            width: 60%;
+            height: auto;
+            color: #e84a5f;
+            margin-left: 10px;
+        }
+
+        #recommend {
+            color: #e84a5f;
+            margin-left: 250px;
+        }
+        .lb{
+            color: skyblue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI-page</title>
+</head>
+
+<body>
+    <div id="dCon">
+        <h1 class="dCon1">Chỉ số BMI của bạn ?</h1>
+        <p class="dCon1">Chỉ số khối cơ thể hay còn gọi là BMI được dùng để xác định mức độ gầy hay béo của cơ thể thông
+            qua chiều cao và cân nặng.
+        </p>
+        <hr>
+        <div id="dHead">
+            <!-- <h2 id="dHead1">Để có thể xác định được chỉ số BMI của bạn, vui lòng trả lời những câu hỏi dưới đây:</h2>  -->
+            <img src="picture5.jpg" alt="bmi" width="580px" height="150px">
+        </div>
+        <div id="dLeft">
+            <hr>
+            <br><br><br>
+            <label class="lb">Chiều cao (cm)</label>
+            <br>
+            <input type="number" size="30" class="lb" id="he">
+            <br>
+            <br>
+            <br>
+            <label class="lb">Cân nặng (kg)</label>
+            <br>
+            <input type="number" size="30" class="lb" id="we">
+            <br><br><br>
+            </a><button class="lb" id="su"> Kiểm Tra </button>
+            <br><br><br>
+            <div id="rs1" class="rs1"> </div>
+            <br>
+            <div id="rsWH" class="rs1"></div>
+            <br>
+            <div id="rsB" class="rs1"></div>
+            <br>
+            <div id="rs" class="rs1"> </div>
+            <br>
+            <a href="file:///C:/Users/Admin/Desktop/Demo-Project2/PROJECT-BMI/homepage.html#section2">
+                <div id="recommend" class="rs1"> </div>
+            </a>
+        </div>
+        <div id="dRight">
+            <ul class="tit"> Chỉ số BMI là gì?</ul>
+
+            <li class="con"> Chỉ số BMI (chỉ số khối cơ thể) là điểm số tiêu chuẩn để xác định mức cân nặng của một
+                người dựa trên chiều cao, cân nặng của cơ thể. Với chỉ số BMI bạn có thể biết được cơ thể của mình thuộc
+                tình trạng: nhẹ cân, bình thường, thừa cân hay béo phì.
+            </li>
+            <br>
+            <li class="con">BMI là từ viết tắt tiếng Anh của: Body Mass Index
+            </li>
+            <br>
+            <li class="con">Chỉ số BMI có sự thay đổi giữa các quốc gia
+            </li>
+            <br>
+            <br>
+            <ul class="tit"> Cách tính chỉ số BMI</ul>
+            <li class="con" id="con1"> Chỉ số BMI được tính bằng cân nặng của bạn (kg) chia cho bình phương chiều cao
+                (mét hoặc cm). Hãy kiểm tra chỉ số BMI của bạn bằng cách:</li>
+            <br>
+            <li class="con"> Nhập cân nặng (kg) và chiều cao (cm) của bạn vào bảng dưới đây.</li>
+            <br>
+            <li class="con"> Chọn vào “Kết quả” và kết quả chỉ số BMI của bạn sẽ được trả về.
+            </li>
+        </div>
+    </div>
+    <script>
+        let we = document.getElementById('we') //cân nặng width
+        let he = document.getElementById('he') //chiều cao height
+        let su = document.getElementById('su') //nút submit
+        let rs = document.getElementById('rs') //div trả về result
+        let rs1 = document.getElementById('rs1')
+        let rsHW = document.getElementById('rsWH')
+        let recommend = document.getElementById('recommend')
+
+        su.addEventListener('click', function () {
+            bmi = Number(we.value) / Number((he.value / 100) * (he.value / 100));
+            bmi = parseFloat(bmi).toFixed(2);
+            if (we.value == 0 || he.value == 0) {
+                rs.innerHTML = 'Vui lòng nhập đầy đủ số liệu';
+            } else if (bmi < 16) {
+                rs1.innerHTML = 'KẾT QUẢ: chỉ số của bạn cho thấy bạn quá gầy'
+                rsHW.innerHTML = `Chiều cao và cân nặng của bạn lần lượt là là: ${he.value}cm và ${we.value}kg`
+                rsB.innerHTML = 'Chỉ số BMI của bạn là: ' + bmi
+                rs.innerHTML = 'Bạn có thể được xem là nhẹ cân nếu chỉ số BMI dưới 18,5. Nếu bạn muốn tăng cân, hãy nắm rõ nhu cầu calo của cơ thể để phục vụ cho hoạt động hàng ngày và từ đó tính toán chế độ ăn uống để dung nạp nhiều calo hơn mức cần thiết. Bạn có thể bổ sung khoảng 300–500 kcal trong khẩu phần ăn của mình. Ví dụ, nếu một ngày bạn cần 1.700 kcal thì lượng calo bạn cần hấp thu là 1700+500=2.200 kcal.';
+                recommend.innerHTML = 'Tham khảo một số khóa học!'
+            } else if (bmi < 18.5) {
+                rs1.innerHTML = 'KẾT QUẢ: chỉ số của bạn cho thấy bạn khỏe mạnh'
+                rsHW.innerHTML = `Chiều cao và cân nặng của bạn lần lượt là là: ${he.value}cm và ${we.value}kg`
+                rsB.innerHTML = 'Chỉ số BMI của bạn là: ' + bmi
+                rs.innerHTML = 'Bạn được xem là có cân nặng chuẩn nếu có chỉ số BMI dao động từ 18,5 – 24,9. Để duy trì cân nặng chuẩn, bạn cần biết lượng calo cần dung nạp để đảm bảo chế độ ăn uống đáp ứng nhu cầu của cơ thể. Ví dụ: Nếu nhu cầu của cơ thể là 1.950 kcal/ngày, bạn nên dung nạp cho cơ thể tổng lượng đồ ăn và thức uống là 1.950 kcal mỗi ngày. ';
+                recommend.innerHTML = 'Tham khảo một số khóa học!'
+            } else if (bmi < 25) {
+                rs1.innerHTML = 'KẾT QUẢ: chỉ số của bạn cho thấy bạn thừa cân'
+                rsHW.innerHTML = `Chiều cao và cân nặng của bạn lần lượt là là: ${he.value}cm và ${we.value}kg`
+                rsB.innerHTML = 'Chỉ số BMI của bạn là: ' + bmi
+                rs.innerHTML = 'Bạn sẽ bị xem là thừa cân nếu chỉ số BMI từ 24,9 to 29,9. Để có thể giảm cân hiệu quả, bạn cần nắm rõ nhu cầu calo của cơ thể phục vụ cho hoạt động hàng ngày và từ đó tính toán chế độ ăn uống để dung nạp ít calo hơn mức cần thiết. Bạn có thể cắt giảm từ 300–500 kcal trong khẩu phần ăn hàng ngày và từ đó giảm được từ 0,5–1 kg mỗi tuần. Ví dụ: Nếu lượng calo hàng ngày của bạn là 2.100, bạn chỉ cần bổ sung 1.600 kcal từ các loại đồ ăn và thức uống. Lượng calo tối thiểu mọi người cần là bao nhiêu? Trung bình, phụ nữ cần khoảng 2.000 kcal hàng ngày trong khi nam giới cần 2.500 kcal. Để có thể giảm cân, bạn cần cắt giảm 500 kcal mỗi ngày. Tuy nhiên, mỗi người cần ít nhất 1.200 kcal để duy trì các hoạt động của cơ thể hàng ngày. Nếu bạn dung nạp ít hơn lượng calo tiêu chuẩn thì sẽ ảnh hưởng xấu đến cơ thể.';
+                recommend.innerHTML = 'Tham khảo một số khóa học!'
+
+            } else if (bmi < 30) {
+                rs1.innerHTML = 'KẾT QUẢ: chỉ số của bạn cho thấy bạn đang béo phì độ 1 '
+                rsHW.innerHTML = `Chiều cao và cân nặng của bạn lần lượt là là: ${he.value}cm và ${we.value}kg`
+                rsB.innerHTML = 'Chỉ số BMI của bạn là: ' + bmi
+                rs.innerHTML = 'Bạn sẽ bị xem là béo phì độ 1 nếu chỉ số BMI từ 25 đến 29,9. Để có thể giảm cân, bạn cần nắm rõ nhu cầu calo của cơ thể phục vụ cho hoạt động hàng ngày và từ đó tính toán chế độ ăn uống để dung nạp ít calo hơn mức cần thiết. Bạn có thể cắt giảm từ 300–500 kcal trong khẩu phần ăn hàng ngày và từ đó giảm được từ 0,5–1 kg mỗi tuần. Ví dụ: Nếu lượng calo hàng ngày của bạn là 2.100, bạn chỉ cần bổ sung 1.600 kcal từ các loại đồ ăn và thức uống. Lượng calo tối thiểu mọi người cần là bao nhiêu? Trung bình, phụ nữ cần khoảng 2.000 kcal hàng ngày trong khi nam giới cần 2.500 kcal. Để có thể giảm cân, bạn cần cắt giảm 500 kcal mỗi ngày. Tuy nhiên, mỗi người cần ít nhất 1.200 kcal để duy trì các hoạt động của cơ thể hàng ngày. Nếu bạn dung nạp ít hơn lượng calo tiêu chuẩn thì sẽ ảnh hưởng xấu đến cơ thể.';
+                recommend.innerHTML = 'Tham khảo một số khóa học!'
+
+            } else {
+                rs1.innerHTML = 'KẾT QUẢ: chỉ số của bạn cho thấy bạn đang béo phì độ 2'
+                rsHW.innerHTML = `Chiều cao và cân nặng của bạn lần lượt là là: ${he.value}cm và ${we.value}kg`
+                rsB.innerHTML = 'Chỉ số BMI của bạn là: ' + bmi
+                rs.innerHTML = 'Bạn sẽ bị xem là béo phì độ 2 nếu chỉ số BMI từ 30 trở lên. Để có thể giảm cân, bạn cần nắm rõ nhu cầu calo của cơ thể phục vụ cho hoạt động hàng ngày và từ đó tính toán chế độ ăn uống để dung nạp ít calo hơn mức cần thiết. Bạn có thể cắt giảm từ 300–500 kcal trong khẩu phần ăn hàng ngày và từ đó giảm được từ 0,5–1 kg mỗi tuần. Ví dụ: Nếu lượng calo hàng ngày của bạn là 2.100, bạn chỉ cần bổ sung 1.600 kcal từ các loại đồ ăn và thức uống. Lượng calo tối thiểu mọi người cần là bao nhiêu? Trung bình, phụ nữ cần khoảng 2.000 kcal hàng ngày trong khi nam giới cần 2.500 kcal. Để có thể giảm cân, bạn cần cắt giảm 500 kcal mỗi ngày. Tuy nhiên, mỗi người cần ít nhất 1.200 kcal để duy trì các hoạt động của cơ thể hàng ngày. Nếu bạn dung nạp ít hơn lượng calo tiêu chuẩn thì sẽ ảnh hưởng xấu đến cơ thể.';
+                recommend.innerHTML = 'Tham khảo một số khóa học!'
+
+            }
+        })
+    </script>
+</body>
+
+</html>

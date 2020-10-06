@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="register-form">
+        <input id="value1" class="input-form" type="name" placeholder="Nhập tên tài khoản" required><br><br>
+        <input id="value2" class="input-form" type="email" placeholder="Nhập email của bạn" required><br><br>
+        <input id="submitform1" class="submit-form" value="Đăng ký" type="button">
+    </form>
+    <script>
+        let BMI = {
+            users: {
+                name: "",
+                email: "",
+                password: "",
+                isAdmin: Boolean,
+            }
+        }
+
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        const data = urlParams.get('data')
+        console.log(data);
+
+        var User = null;
+        try {
+            User = JSON.parse(localStorage.getItem(data));
+        } catch (error) { }
+
+        console.log(User);
+
+        var loginbutton = document.getElementById("submitform1");
+        var loginname = document.getElementById('value1');
+        var loginemail = document.getElementById('value2');
+        loginbutton.addEventListener('click', updateData1);
+        function updateData1() {
+            BMI.users.name = loginname.value;
+            BMI.users.email = loginemail.value;
+            BMI.users.password = User.password;
+            BMI_serialized = JSON.stringify(BMI.users);
+            localStorage.setItem(data, BMI_serialized);
+            window.history.back();
+        };
+        loginname.value = User.name;
+        loginemail.value = User.email;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://mstyle.vn/wp-content/uploads/2019/12/ne%CC%82n-ta%CC%A3%CC%82p-gym-hay-yoga-3.png);
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .loginpage {
+        width: 100%;
+        padding: 5% 0 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form {
+        position: relative;
+        z-index: 1;
+        background: rgba(82, 79, 79, 0.5);
+        max-width: 300px;
+        padding: 45px;
+        text-align: center;
+    }
+
+    .form input {
+        font-family: "Roboto", sans-serif;
+        outline: 1;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    .form button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #e84a5f;
+        width: 50%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .form button:hover,
+    .form button:active {
+        background: #2a363b;
+    }
+
+    .form .message {
+        margin: 15px 0 0;
+        color: #e84a5f;
+    }
+
+    .form .message a {
+        text-decoration: none;
+    }
+
+    .form .register-form {
+        display: none;
+    }
+
+    #aboutus {
+        margin-left: 100px;
+        text-align: left;
+        color: whitesmoke;
+    }
+
+    .mainaboutus {
+        color: tomato;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-page</title>
+</head>
+
+<body>
+    <div class="loginpage">
+        <div class="form">
+            <form class="register-form">
+                <input id="value1" type="text" placeholder="Username" required>
+                <input id="value2" type="text" placeholder="Email" required>
+                <input id="value3" type="password" placeholder="Password" required>
+                <button id="submitform2" type="submit">Create</button>
+                <p class="message">Already Registered? <a href="#">Login</a> </p>
+            </form>
+            <form class="login-form">
+                <input id="loginemail" type="text" placeholder="Email" required>
+                <input id="loginpassword" type="password" placeholder="Password" required>
+                <button id="submitform1">Login</button>
+                <p class="message">Not Registered? <a href="#">Register</a></p>
+            </form>
+            <br>
+            <br>
+            <img src="logo.png" alt="logo" width="250px" height="60px">
+        </div>
+        <div id="aboutus">
+            <h2 class="inform">Bạn muốn cải thiện cơ thể mình ?</h2>
+            <br>
+            <br>
+            <h3 class="inform">Một thân hình đẹp nhất trên các bãi biển</h3>
+            <br>
+            <br>
+            <h3 class="inform">Những kiến thức về Fitness chuẩn chỉ</h3>
+            <br>
+            <h3></h3>
+            <br>
+            <h2>Hãy đến với chúng tôi !!!!!</h2>
+            <br>
+            <br>
+            <h1 class="mainaboutus">ABOUT US : BMI-DOCTOR</h1>
+            <br>
+            <br>
+            <br>
+            <h3 class="mainaboutus">Đội ngũ huấn luyện viên chuyên nghiệp với nhiều năm kinh nghiệm</h3>
+            <br>
+            <br>
+            <br>
+            <h3 class="mainaboutus">Nắm rõ chỉ số cơ thể của bạn và những lời khuyên hữu ích</h3>
+            <br>
+            <br>
+            <br>
+            <h3 class="mainaboutus">Video những bài tập từ cơ bản cho tới nâng cao </h3>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('.message a').click(function () {
+            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        })
+        let BMI = {
+            users: {
+                name: "",
+                email: "",
+                password: "",
+                isAdmin: Boolean,
+            }
+        };
+        if (localStorage.getItem(`userAdmin`) == null) {
+            BMI.users.name = "admin";
+            BMI.users.email = "admin@gmail.com";
+            BMI.users.password = "123";
+            BMI.users.isAdmin = true;
+            BMI_serialized = JSON.stringify(BMI.users);
+            localStorage.setItem(`userAdmin`, BMI_serialized);
+            BMI_deserialized = JSON.parse(localStorage.getItem(`userAdmin`));
+        }
+        var registerbutton = document.getElementById("submitform2");
+        var data1 = document.getElementById('value1');
+        var data2 = document.getElementById('value2');
+        var data3 = document.getElementById('value3');
+        registerbutton.addEventListener('click', function updateData(f) {
+            f.preventDefault();
+            BMI.users.name = data1.value;
+            BMI.users.email = data2.value;
+            BMI.users.password = data3.value;
+            BMI_serialized = JSON.stringify(BMI.users);
+            localStorage.setItem(data2.value, BMI_serialized);
+            BMI_deserialized = JSON.parse(localStorage.getItem(data2.value));
+            console.log(localStorage);
+            console.log(BMI_deserialized);
+            alert("Register Successful");
+        });
+        loginbutton = document.getElementById("submitform1");
+        loginemail = document.getElementById("loginemail");
+        loginpassword = document.getElementById("loginpassword");
+        loginbutton.addEventListener('click', function loginSend(e) {
+            e.preventDefault();
+            if (loginpassword.value == JSON.parse(localStorage.getItem(loginemail.value)).password) {
+                alert("Login Successful !");
+                window.location.assign("homepage.html");
+            } else {
+                alert("Please try again !");
+            }
+        });
+        var loginbutton = document.getElementById("submitform1");
+        var loginemail = document.getElementById('loginemail');
+        var loginpassword = document.getElementById('loginpassword');
+        loginbutton.addEventListener('click', updateData1);
+        function updateData1() {
+            var listUser = JSON.parse(localStorage.getItem(`userAdmin`));
+            if (listUser.isAdmin && listUser.email == loginemail.value && listUser.password == loginpassword.value) {
+                console.log(listUser);
+                alert("Đăng nhập thành công");
+                window.location.href = "admin.html";
+            }
+        };
+    </script>
+</body>
+
+</html>
